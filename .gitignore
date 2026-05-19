@@ -1,0 +1,25 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot cache & temp
+.import/
+export_presets.cfg
+export_credentials.cfg
+
+# Mono / C#
+.mono/
+data_*/
+
+# Build/export output
+bin/
+build/
+export/
+
+# OS junk
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/
