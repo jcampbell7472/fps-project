@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 # How fast the player moves in meters per second.
 @export var speed = 14
+# Sprint speed multiplier
+@export var sprint_speed = 2
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
 # Vertical impulse applied to the character upon jumping in meters per second.
@@ -29,8 +31,12 @@ func _physics_process(delta: float) -> void:
 		direction = direction.normalized().rotated(Vector3.UP,$PlayerCamera.rotation.y)
 	
 	# Ground Velocity
-	target_velocity.x = direction.x * speed
-	target_velocity.z = direction.z * speed
+	if Input.is_action_pressed("sprint"):
+		target_velocity.x = direction.x * speed * sprint_speed
+		target_velocity.z = direction.z * speed * sprint_speed
+	else:
+		target_velocity.x = direction.x * speed
+		target_velocity.z = direction.z * speed
 	
 	# Vertical Velocity
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity

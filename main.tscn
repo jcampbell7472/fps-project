@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://dshygyd5u7dtv" path="res://assets/environment/qwantani_moon_noon_puresky_4k.exr" id="2_0xm2m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
-size = Vector3(100, 1, 100)
+size = Vector3(200, 1, 200)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
 albedo_color = Color(0.7417883, 0.91312534, 0.9941725, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
-size = Vector3(100, 1, 100)
+size = Vector3(200, 1, 200)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h2yge"]
 panorama = ExtResource("2_0xm2m")
@@ -24,21 +24,23 @@ sky = SubResource("Sky_0xm2m")
 
 [node name="Main" type="Node" unique_id=1884406464]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=475960541]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1758400491]
-shape = SubResource("BoxShape3D_7dm0k")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=411113083]
-material_override = SubResource("StandardMaterial3D_ig7tw")
-mesh = SubResource("BoxMesh_0xm2m")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2134532599]
-transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 2.3529453, 110.47525, 16.077862)
-
 [node name="Player" parent="." unique_id=1548439962 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.014717, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2007988241]
+[node name="World" type="Node3D" parent="." unique_id=1988807692]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World" unique_id=475960541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D" unique_id=1758400491]
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/StaticBody3D" unique_id=411113083]
+material_override = SubResource("StandardMaterial3D_ig7tw")
+mesh = SubResource("BoxMesh_0xm2m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=2007988241]
 environment = SubResource("Environment_h2yge")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=2134532599]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 2.3529453, 110.47525, 16.077862)
