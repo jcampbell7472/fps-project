@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://b8pdtldt648l3"]
+
+[ext_resource type="Script" uid="uid://dprulxgs8d8r" path="res://lobby.gd" id="1_ll2xe"]
+
+[node name="Lobby" type="Node" unique_id=379952208]
+script = ExtResource("1_ll2xe")
+
+[node name="LobbyUI" type="Control" parent="." unique_id=1100846392]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="BackgroundRect" type="ColorRect" parent="LobbyUI" unique_id=1784630775]
+z_index = -1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(3.760215e-10, 0.004725095, 0.004857325, 0.52156866)
+
+[node name="Title" type="Label" parent="LobbyUI" unique_id=1309258852]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -94.0
+offset_right = 94.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Lobby"
+
+[node name="Chat" type="Control" parent="LobbyUI" unique_id=1619996006]
+visible = false
+anchors_preset = 0
+offset_left = 81.0
+offset_top = 649.0
+offset_right = 722.0
+offset_bottom = 1023.0
+
+[node name="SendButton" type="Button" parent="LobbyUI/Chat" unique_id=2019471733]
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -43.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "SEND"
+
+[node name="MessageTextBox" type="LineEdit" parent="LobbyUI/Chat" unique_id=688868333]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -43.0
+offset_right = 524.0
+grow_vertical = 0
+placeholder_text = "Enter a message..."
+
+[node name="Messages" type="TextEdit" parent="LobbyUI/Chat" unique_id=858547084]
+layout_mode = 0
+offset_right = 641.0
+offset_bottom = 331.0
+editable = false
+
+[node name="JoinAndHostUI" type="Control" parent="LobbyUI" unique_id=1930258309]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerNameTextBox" type="LineEdit" parent="LobbyUI/JoinAndHostUI" unique_id=1871484536]
+layout_mode = 1
+offset_left = 164.0
+offset_top = 145.0
+offset_right = 588.0
+offset_bottom = 205.0
+placeholder_text = "Enter your Player Name here..."
+
+[node name="AddressTextBox" type="LineEdit" parent="LobbyUI/JoinAndHostUI" unique_id=999372497]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 310.0
+offset_right = 505.0
+offset_bottom = 370.0
+placeholder_text = "Enter an IP address here..."
+
+[node name="JoinButton" type="Button" parent="LobbyUI/JoinAndHostUI" unique_id=2096231629]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 293.0
+offset_right = 697.0
+offset_bottom = 393.0
+text = "Join Lobby"
+
+[node name="LobbyNameTextBox" type="LineEdit" parent="LobbyUI/JoinAndHostUI" unique_id=1893856467]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 496.0
+offset_right = 505.0
+offset_bottom = 556.0
+placeholder_text = "Enter your new lobby's name here..."
+
+[node name="HostButton" type="Button" parent="LobbyUI/JoinAndHostUI" unique_id=859077875]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 479.0
+offset_right = 697.0
+offset_bottom = 579.0
+text = "Host Lobby"
+
+[node name="DisconnectButton" type="Button" parent="LobbyUI" unique_id=518315405]
+visible = false
+layout_mode = 0
+offset_left = 21.0
+offset_top = 19.0
+offset_right = 190.0
+offset_bottom = 88.0
+text = "Disconnect"
+
+[node name="LobbyInfo" type="Control" parent="LobbyUI" unique_id=1845608319]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerList" type="TextEdit" parent="LobbyUI/LobbyInfo" unique_id=544404158]
+layout_mode = 0
+offset_left = 1165.0
+offset_top = 149.0
+offset_right = 1651.0
+offset_bottom = 967.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "No players yet..."
+editable = false
+
+[node name="PlayerListLabel" type="Label" parent="LobbyUI/LobbyInfo" unique_id=1112578134]
+layout_mode = 0
+offset_left = 1366.0
+offset_top = 113.0
+offset_right = 1459.0
+offset_bottom = 136.0
+text = "Player List"
+
+[connection signal="pressed" from="LobbyUI/Chat/SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="pressed" from="LobbyUI/JoinAndHostUI/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="LobbyUI/JoinAndHostUI/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="LobbyUI/DisconnectButton" to="." method="_on_disconnect_button_pressed"]

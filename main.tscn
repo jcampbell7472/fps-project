@@ -2,12 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://dtm2r6n1b7m6x" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://dshygyd5u7dtv" path="res://assets/environment/qwantani_moon_noon_puresky_4k.exr" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cpaeb71vrfewr" path="res://assets/environment/groundtexture.jpg" id="2_h2yge"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(200, 1, 200)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
-albedo_color = Color(0.7417883, 0.91312534, 0.9941725, 1)
+albedo_color = Color(0.8960907, 0.87970847, 0.86353403, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_texture = ExtResource("2_h2yge")
+uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
 size = Vector3(200, 1, 200)
@@ -37,6 +42,7 @@ shape = SubResource("BoxShape3D_7dm0k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/StaticBody3D" unique_id=411113083]
 material_override = SubResource("StandardMaterial3D_ig7tw")
+material_overlay = SubResource("StandardMaterial3D_1bvp3")
 mesh = SubResource("BoxMesh_0xm2m")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=2007988241]
