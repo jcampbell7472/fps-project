@@ -145,7 +145,27 @@ offset_right = 1459.0
 offset_bottom = 136.0
 text = "Player List"
 
+[node name="UsernameLabel" type="Label" parent="LobbyUI/LobbyInfo" unique_id=2130911485]
+visible = false
+layout_mode = 0
+offset_left = 1180.0
+offset_top = 995.0
+offset_right = 1619.0
+offset_bottom = 1038.0
+theme_override_font_sizes/font_size = 16
+text = "Player Name here..."
+
+[node name="StartButton" type="Button" parent="LobbyUI" unique_id=945935995]
+visible = false
+layout_mode = 0
+offset_left = 1706.0
+offset_top = 479.0
+offset_right = 1867.0
+offset_bottom = 579.0
+text = "Start Game"
+
 [connection signal="pressed" from="LobbyUI/Chat/SendButton" to="." method="_on_send_button_pressed"]
 [connection signal="pressed" from="LobbyUI/JoinAndHostUI/JoinButton" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="LobbyUI/JoinAndHostUI/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="LobbyUI/DisconnectButton" to="." method="_on_disconnect_button_pressed"]
+[connection signal="pressed" from="LobbyUI/StartButton" to="." method="_on_start_button_pressed"]
