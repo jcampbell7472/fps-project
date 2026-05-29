@@ -6,6 +6,9 @@ var nm = NetworkManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if is_multiplayer_authority():
+		visible = true
+	
 	#add all players in lobby to player list
 	player_list.text += "Players:" + "\n"
 	for id in nm.players:

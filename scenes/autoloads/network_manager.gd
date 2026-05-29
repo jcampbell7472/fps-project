@@ -5,6 +5,7 @@ signal player_list_updated
 const PORT = 1027
 
 var usrnm : String
+var id : int
 var host_ip : String
 
 #dictionary to contain player info, keyed by unique id
@@ -24,6 +25,7 @@ func create_host(player_name : String):
 	multiplayer.multiplayer_peer = peer
 	
 	#add host id and username to player list dict
+	id = multiplayer.get_unique_id()
 	players.get_or_add(multiplayer.get_unique_id(),usrnm)
 
 func create_client(player_name : String, target_ip : String):
@@ -34,6 +36,9 @@ func create_client(player_name : String, target_ip : String):
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client(host_ip,PORT)
 	multiplayer.multiplayer_peer = peer
+	
+	id = multiplayer.get_unique_id()
+	
 
 
 func _on_peer_connected(id):

@@ -11,7 +11,9 @@ var pitch = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	if is_multiplayer_authority():
+		make_current()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion && rotation_enabled:
