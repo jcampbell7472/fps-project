@@ -2,6 +2,8 @@ extends Node
 
 signal player_list_updated
 
+const PORT = 1027
+
 var usrnm : String
 var host_ip : String
 
@@ -30,7 +32,7 @@ func create_client(player_name : String, target_ip : String):
 	
 	#create client
 	var peer = ENetMultiplayerPeer.new()
-	peer.create_client(host_ip,1027)
+	peer.create_client(host_ip,PORT)
 	multiplayer.multiplayer_peer = peer
 
 

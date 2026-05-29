@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dh7ygg2t2lwdb"]
 
-[ext_resource type="PackedScene" uid="uid://dtm2r6n1b7m6x" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://dshygyd5u7dtv" path="res://assets/environment/qwantani_moon_noon_puresky_4k.exr" id="2_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://cpaeb71vrfewr" path="res://assets/environment/groundtexture.jpg" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dtm2r6n1b7m6x" path="res://scenes/player/player.tscn" id="1_a1oss"]
+[ext_resource type="Texture2D" uid="uid://cpaeb71vrfewr" path="res://assets/environment/groundtexture.jpg" id="2_t4kq2"]
+[ext_resource type="Texture2D" uid="uid://dshygyd5u7dtv" path="res://assets/environment/qwantani_moon_noon_puresky_4k.exr" id="3_r4rjb"]
+[ext_resource type="PackedScene" uid="uid://bsprp4cniaj27" path="res://scenes/world/cube.tscn" id="4_t4kq2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(200, 1, 200)
@@ -11,14 +12,14 @@ size = Vector3(200, 1, 200)
 albedo_color = Color(0.8960907, 0.87970847, 0.86353403, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
-albedo_texture = ExtResource("2_h2yge")
+albedo_texture = ExtResource("2_t4kq2")
 uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
 size = Vector3(200, 1, 200)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h2yge"]
-panorama = ExtResource("2_0xm2m")
+panorama = ExtResource("3_r4rjb")
 
 [sub_resource type="Sky" id="Sky_0xm2m"]
 sky_material = SubResource("PanoramaSkyMaterial_h2yge")
@@ -29,7 +30,7 @@ sky = SubResource("Sky_0xm2m")
 
 [node name="Main" type="Node" unique_id=1884406464]
 
-[node name="Player" parent="." unique_id=1548439962 instance=ExtResource("1_ig7tw")]
+[node name="Player" parent="." unique_id=1548439962 instance=ExtResource("1_a1oss")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.014717, 0)
 
 [node name="World" type="Node3D" parent="." unique_id=1988807692]
@@ -50,3 +51,8 @@ environment = SubResource("Environment_h2yge")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=2134532599]
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 2.3529453, 110.47525, 16.077862)
+
+[node name="Objects" type="Node3D" parent="." unique_id=615220805]
+
+[node name="Cube" parent="Objects" unique_id=1235029914 instance=ExtResource("4_t4kq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.682432, 5.7097716, -17.994448)

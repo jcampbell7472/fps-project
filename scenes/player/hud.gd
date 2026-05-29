@@ -1,0 +1,17 @@
+extends Control
+
+var nm = NetworkManager
+
+@onready var player_list: TextEdit = $PlayerList
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	#add all players in lobby to player list
+	player_list.text += "Players:" + "\n"
+	for id in nm.players:
+		player_list.text += nm.players[id] + "\n"
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
