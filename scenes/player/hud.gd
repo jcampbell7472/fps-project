@@ -13,8 +13,3 @@ func _ready() -> void:
 	player_list.text += "Players:" + "\n"
 	for id in nm.players:
 		player_list.text += nm.players[id] + "\n"
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

@@ -38,15 +38,15 @@ func create_client(player_name : String, target_ip : String):
 	multiplayer.multiplayer_peer = peer
 	
 	id = multiplayer.get_unique_id()
-	
 
 
-func _on_peer_connected(id):
+func _on_peer_connected(player_id):
 	#send the new peer the current player dict
-	rpc_id(id,"send_player_dict", players)
+	if multiplayer.is_server():
+		rpc_id(player_id,"send_player_dict", players)
 
-func _on_peer_disconnected(id):
-	players.erase(id)
+func _on_peer_disconnected(player_id):
+	players.erase(player_id)
 	update_all_player_dict(players)
 
 @rpc ("any_peer","call_local")
@@ -54,7 +54,7 @@ func update_all_player_dict(new_players : Dictionary):
 	players = new_players
 	player_list_updated.emit()
 
-@rpc ("authority","call_remote")
+@rpc ("any_peer","call_remote")
 func send_player_dict(new_players : Dictionary):
 	#set local dict to dict from host
 	players = new_players

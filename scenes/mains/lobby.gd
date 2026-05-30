@@ -90,5 +90,6 @@ func _on_start_button_pressed() -> void:
 
 @rpc ("authority","call_local")
 func start_game():
-	get_tree().change_scene_to_file("res://scenes/mains/main.tscn")
+	#get_tree().change_scene_to_file("res://scenes/mains/main.tscn")
+	SceneLoader.load_scene("res://scenes/mains/main.tscn")
 	print(str("Player changing to main scene. ID: ",nm.multiplayer.get_unique_id()))

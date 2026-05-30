@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cie71ykhss4ja" path="res://scenes/player/input_controller.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://d28pva5a306b" path="res://scenes/player/movement_controller.gd" id="3_p47bc"]
 [ext_resource type="Script" uid="uid://b1wpf8evoc4gp" path="res://scenes/player/hud.gd" id="4_lvxji"]
+[ext_resource type="Script" uid="uid://dywklybs8xw6y" path="res://scenes/player/mesh_instance_3d.gd" id="6_75vfm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
@@ -55,6 +56,7 @@ editable = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1399993386]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41648245, 0)
 mesh = SubResource("BoxMesh_p47bc")
+script = ExtResource("6_75vfm")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2143623372]
 replication_config = SubResource("SceneReplicationConfig_p47bc")

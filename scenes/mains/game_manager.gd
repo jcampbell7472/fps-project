@@ -14,11 +14,7 @@ var players_in_game : int = 0
 
 func _ready() -> void:
 	#notify server that player has joined, pass the player's id
-	im_in_game.rpc(nm.multiplayer.get_unique_id())
-	
-	print(multiplayer.multiplayer_peer)
-	print(multiplayer.get_unique_id())
-	print(multiplayer.is_server())
+	im_in_game.rpc(nm.id)
 
 @rpc("any_peer","call_local","reliable")
 func im_in_game (id : int):
