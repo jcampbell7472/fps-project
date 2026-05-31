@@ -12,4 +12,8 @@ func _ready() -> void:
 	#add all players in lobby to player list
 	player_list.text += "Players:" + "\n"
 	for id in nm.players:
-		player_list.text += nm.players[id] + "\n"
+		if id == nm.id:
+			player_list.text += nm.players[id] + " (you)" + "\n"
+		else:
+			player_list.text += nm.players[id] + "\n"
+		

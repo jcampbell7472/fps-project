@@ -83,13 +83,6 @@ func update_list_text():
 		player_list.text += nm.players[id] + "\n"
 	username_label.text = "Your username: " + nm.usrnm
 
-#Start game logic
-
+#call start game function on network manager
 func _on_start_button_pressed() -> void:
-	rpc("start_game")
-
-@rpc ("authority","call_local")
-func start_game():
-	#get_tree().change_scene_to_file("res://scenes/mains/main.tscn")
-	SceneLoader.load_scene("res://scenes/mains/main.tscn")
-	print(str("Player changing to main scene. ID: ",nm.multiplayer.get_unique_id()))
+	nm.start_game()

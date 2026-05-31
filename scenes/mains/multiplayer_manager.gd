@@ -6,33 +6,10 @@ extends Node
 #preload the player scene
 var player_scene = preload("res://scenes/player/player.tscn")
 
-#array to contain every spawned player
-var current_players : Array = []
-
-#counter for number of players in game
-var players_in_game : int = 0
-
 func _ready() -> void:
-	#notify server that player has joined, pass the player's id
-	await get_tree().create_timer(2.0).timeout
-	im_in_game.rpc(nm.id)
+	nm.players_ready_to_spawn.connect(spawn_players)
+	nm.notify_player_ready()
 
-@rpc("any_peer","call_local","reliable")
-func im_in_game (id : int):
-	#check that only the server is running the function
-	if nm.multiplayer.is_server():
-		print(str("Player joined. ID: ",id))
-		#increment player count
-		players_in_game += 1
-		print(str(players_in_game," players connected."))
-		
-		#if every player has joined, spawn each player
-		if players_in_game == len(nm.players):
-			print("Every player joined game. Spawning players.")
-			spawn_players.rpc()
-
-
-@rpc("any_peer","call_local")
 func spawn_players():
 	print("Spawning players. ID:", multiplayer.get_unique_id())
 	for id in nm.players:

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dh7ygg2t2lwdb"]
 
-[ext_resource type="Script" uid="uid://cxsfuwog3bnkw" path="res://scenes/mains/game_manager.gd" id="1_t4kq2"]
+[ext_resource type="Script" uid="uid://opwi8mg0qjr0" path="res://scenes/mains/multiplayer_manager.gd" id="1_a1oss"]
 [ext_resource type="Texture2D" uid="uid://cpaeb71vrfewr" path="res://assets/environment/groundtexture.jpg" id="2_t4kq2"]
 [ext_resource type="Texture2D" uid="uid://dshygyd5u7dtv" path="res://assets/environment/qwantani_moon_noon_puresky_4k.exr" id="3_r4rjb"]
 
@@ -29,10 +29,10 @@ sky = SubResource("Sky_0xm2m")
 
 [node name="Main" type="Node" unique_id=1884406464]
 
-[node name="GameManager" type="Node" parent="." unique_id=740007744]
-script = ExtResource("1_t4kq2")
+[node name="MultiplayerManager" type="Node" parent="." unique_id=740007744]
+script = ExtResource("1_a1oss")
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="GameManager" unique_id=341482572]
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="MultiplayerManager" unique_id=341482572]
 spawn_path = NodePath(".")
 
 [node name="World" type="Node3D" parent="." unique_id=1988807692]
