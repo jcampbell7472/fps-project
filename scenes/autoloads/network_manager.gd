@@ -16,7 +16,6 @@ var players = {}
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
-	
 
 #called when a host creates a lobby
 func create_host(player_name : String):
@@ -91,6 +90,7 @@ func player_ready():
 		ready_players += 1
 		if ready_players == len(players):
 			rpc("all_players_ready")
+			ready_players = 0
 
 #tell every peer that the players are ready to spawn
 @rpc("authority","call_local")
