@@ -7,9 +7,10 @@ extends Node
 var player_scene = preload("res://scenes/player/player.tscn")
 
 func _ready() -> void:
-	nm.players_ready_to_spawn.connect(spawn_players)
-	nm.notify_player_ready()
+	nm.players_ready_to_spawn.connect(spawn_players) #signal from network manager that notifies whenever every player is ready to spawn
+	nm.notify_player_ready() #notify network manager that this player is ready to spawn
 
+#connected to players_ready_to_spawn signal
 func spawn_players():
 	print("Spawning players. ID:", multiplayer.get_unique_id())
 	for id in nm.players:

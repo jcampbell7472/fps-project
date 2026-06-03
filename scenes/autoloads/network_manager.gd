@@ -73,9 +73,7 @@ func start_game():
 #tells every peer to change their scene to main
 @rpc ("authority","call_local")
 func start_all_game():
-	#get_tree().change_scene_to_file("res://scenes/mains/main.tscn")
 	SceneLoader.load_scene("res://scenes/mains/main.tscn")
-	#print(str("Player changing to main scene. ID: ",nm.multiplayer.get_unique_id()))
 
 #ready player logic
 

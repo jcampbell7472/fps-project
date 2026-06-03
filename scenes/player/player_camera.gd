@@ -13,6 +13,8 @@ var pitch = 0
 func _ready() -> void:
 	if is_multiplayer_authority():
 		make_current()
+	else:
+		visible = false
 
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		direction.z -= 1
 	
 	if direction != Vector3.ZERO:
-		direction = direction.normalized().rotated(Vector3.UP,player_camera.rotation.y)
+		direction = direction.normalized().rotated(Vector3.UP,player_camera.rotation.y)#normalise and rotate based on camera's Y rotation
 	
 	# Ground Velocity
 	if Input.is_action_pressed("sprint"):

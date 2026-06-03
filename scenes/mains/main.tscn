@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dh7ygg2t2lwdb"]
 
 [ext_resource type="Script" uid="uid://opwi8mg0qjr0" path="res://scenes/mains/multiplayer_manager.gd" id="1_a1oss"]
-[ext_resource type="Texture2D" uid="uid://cpaeb71vrfewr" path="res://assets/environment/groundtexture.jpg" id="2_t4kq2"]
+[ext_resource type="Texture2D" uid="uid://c2ewj7ftsn4of" path="res://assets/prototype_textures/dark/texture_01.png" id="2_a1oss"]
 [ext_resource type="Texture2D" uid="uid://dshygyd5u7dtv" path="res://assets/environment/qwantani_moon_noon_puresky_4k.exr" id="3_r4rjb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
@@ -11,8 +11,8 @@ size = Vector3(200, 1, 200)
 albedo_color = Color(0.8960907, 0.87970847, 0.86353403, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
-albedo_texture = ExtResource("2_t4kq2")
-uv1_scale = Vector3(5, 5, 5)
+albedo_texture = ExtResource("2_a1oss")
+uv1_scale = Vector3(30, 30, 30)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
 size = Vector3(200, 1, 200)
