@@ -6,7 +6,8 @@
 [ext_resource type="Script" uid="uid://cie71ykhss4ja" path="res://scenes/player/input_controller.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://d28pva5a306b" path="res://scenes/player/movement_controller.gd" id="3_p47bc"]
 [ext_resource type="Script" uid="uid://b1wpf8evoc4gp" path="res://scenes/player/hud.gd" id="4_lvxji"]
-[ext_resource type="Script" uid="uid://dywklybs8xw6y" path="res://scenes/player/mesh_instance_3d.gd" id="6_75vfm"]
+[ext_resource type="Script" uid="uid://cmkptpiqopx5o" path="res://scenes/player/death_controller.gd" id="5_qek5x"]
+[ext_resource type="Script" uid="uid://dywklybs8xw6y" path="res://scenes/player/player_mesh.gd" id="6_75vfm"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_p47bc"]
 properties/0/path = NodePath(".:position")
@@ -38,6 +39,9 @@ script = ExtResource("3_i3pqv")
 
 [node name="ShootingController" type="Node" parent="." unique_id=542990687]
 script = ExtResource("3_0owmy")
+
+[node name="DeathController" type="Node" parent="." unique_id=689227228]
+script = ExtResource("5_qek5x")
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1845853080]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69459677, 0)

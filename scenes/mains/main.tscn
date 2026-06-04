@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://opwi8mg0qjr0" path="res://scenes/mains/multiplayer_manager.gd" id="1_a1oss"]
 [ext_resource type="Texture2D" uid="uid://c2ewj7ftsn4of" path="res://assets/prototype_textures/dark/texture_01.png" id="2_a1oss"]
 [ext_resource type="Texture2D" uid="uid://dshygyd5u7dtv" path="res://assets/environment/qwantani_moon_noon_puresky_4k.exr" id="3_r4rjb"]
+[ext_resource type="Script" uid="uid://omgcpgxwb2i7" path="res://scenes/mains/spawn_points.gd" id="4_t4kq2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(200, 1, 200)
@@ -53,3 +54,18 @@ environment = SubResource("Environment_h2yge")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=2134532599]
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 2.3529453, 110.47525, 16.077862)
+
+[node name="SpawnPoints" type="Node" parent="." unique_id=1808258614]
+script = ExtResource("4_t4kq2")
+
+[node name="SpawnPoint1" type="Marker3D" parent="SpawnPoints" unique_id=1535496982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10054779, 0, 59.146828)
+
+[node name="SpawnPoint2" type="Marker3D" parent="SpawnPoints" unique_id=2117130736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.41013, 0, 0)
+
+[node name="SpawnPoint3" type="Marker3D" parent="SpawnPoints" unique_id=1443088006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8893738, 0, -83.40343)
+
+[node name="SpawnPoint4" type="Marker3D" parent="SpawnPoints" unique_id=1839521520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.41929, 0, 0)

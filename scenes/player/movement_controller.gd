@@ -2,6 +2,8 @@ extends Node
 
 @onready var player: CharacterBody3D = $".."
 @onready var player_camera: Camera3D = $"../PlayerCamera"
+@onready var death_controller: Node = $"../DeathController"
+
 
 
 # How fast the player moves in meters per second.
@@ -11,7 +13,7 @@ extends Node
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
 # Vertical impulse applied to the character upon jumping in meters per second.
-@export var jump_impulse = 20
+@export var jump_impulse = 40
 
 var target_velocity = Vector3.ZERO
 
@@ -20,6 +22,10 @@ func _ready() -> void:
 		process_mode = Node.PROCESS_MODE_DISABLED
 
 func _physics_process(delta: float) -> void:
+	# don't allow movement if the player is dead
+	if death_controller.is_dead == true:
+		return
+	
 	# We create a local variable to store the input direction.
 	var direction = Vector3.ZERO
 
@@ -36,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		direction.z -= 1
 	
 	if direction != Vector3.ZERO:
-		direction = direction.normalized().rotated(Vector3.UP,player_camera.rotation.y)#normalise and rotate based on camera's Y rotation
+		direction = direction.normalized().rotated(Vector3.UP,player_camera.rotation.y) #normalise and rotate based on camera's Y rotation
 	
 	# Ground Velocity
 	if Input.is_action_pressed("sprint"):
