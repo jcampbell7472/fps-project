@@ -17,7 +17,7 @@ func _ready() -> void:
 		visible = false
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion && rotation_enabled:
 		yaw -= event.screen_relative.x * SENSITIVITY
 		pitch -= event.screen_relative.y * SENSITIVITY
