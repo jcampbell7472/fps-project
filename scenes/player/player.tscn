@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b1wpf8evoc4gp" path="res://scenes/player/hud.gd" id="4_lvxji"]
 [ext_resource type="Script" uid="uid://cmkptpiqopx5o" path="res://scenes/player/death_controller.gd" id="5_qek5x"]
 [ext_resource type="Script" uid="uid://dywklybs8xw6y" path="res://scenes/player/player_mesh.gd" id="6_75vfm"]
+[ext_resource type="Texture2D" uid="uid://cby2giec270dj" path="res://assets/player/ui/crosshair.png" id="9_5gtgg"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_p47bc"]
 properties/0/path = NodePath(".:position")
@@ -137,5 +138,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Crosshair" type="TextureRect" parent="HUD" unique_id=1143440153]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_5gtgg")
 
 [connection signal="pause_changed" from="InputController" to="PlayerCamera" method="_on_input_controller_pause_changed"]
