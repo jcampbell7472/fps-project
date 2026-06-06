@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var player_id : int
+@onready var player_id : int
 
 func _ready() -> void:
 	player_id = get_multiplayer_authority()

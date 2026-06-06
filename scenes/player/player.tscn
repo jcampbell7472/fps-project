@@ -72,11 +72,18 @@ script = ExtResource("4_lvxji")
 [node name="PlayerList" type="TextEdit" parent="HUD" unique_id=1820767579]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 329.0
+offset_top = 64.0
+offset_right = 321.0
 offset_bottom = 1077.0
 theme_override_colors/background_color = Color(0, 0, 0, 0)
-placeholder_text = "Player List"
 editable = false
+
+[node name="PlayerListTitle" type="Label" parent="HUD" unique_id=128828830]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 320.0
+offset_bottom = 64.0
+text = "Players:"
 
 [node name="DeathUI" type="Control" parent="HUD" unique_id=1488949682]
 visible = false

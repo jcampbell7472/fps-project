@@ -1,6 +1,5 @@
 extends Node
 
-signal player_shot(player_id)
 
 @onready var player: CharacterBody3D = $".."
 @onready var player_ray_cast: RayCast3D = $"../PlayerCamera/PlayerRayCast"
@@ -23,8 +22,15 @@ func shoot():
 		print(str("Player shot: ", player_ray_cast.get_collider().name)," ID: ",player_ray_cast.get_collider().player_id)
 		#get the player that was shot (CharacterBody3D)
 		var shot_player = player_ray_cast.get_collider()
+		#check if the player is alive
+		var death_controller = shot_player.get_node("DeathController")
+		if death_controller.is_dead == true:
+			print("Player is already dead.")
+			return
 		#notify multiplayer manager that a player was shot, pass the shot player's id
 		multiplayer_manager.notify_player_shot(shot_player.player_id)
+		#notify multiplayer manager to update scores, pass the shot player's id and score addition
+		multiplayer_manager.notify_update_scores(player.player_id,1)
 
 #code for custom raycast (didnt work, may use in future)
 #func shoot2():
