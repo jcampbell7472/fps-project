@@ -8,7 +8,7 @@ func _ready() -> void:
 	await animation_player.animation_finished #wait until the initial fade in animation is done
 	loading_screen_ready.emit() #tell the scene_loader that the loading screen is ready
 
-func _on_progress_changed(new_value: float):
+func _on_progress_changed(_new_value: float):
 	pass #can use this float for a progress bar
 
 #called when scene_loader is finished loading the scene

@@ -12,8 +12,10 @@ func _input(event):
 	
 	if event.is_action_pressed("pause"):
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			#pause
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			pause_changed.emit(false)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			pause_changed.emit(true)
+		else:
+			#unpause
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			pause_changed.emit(false)

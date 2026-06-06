@@ -26,6 +26,8 @@ func death():
 func respawn():
 	#set position to random spawn point
 	player.global_position = spawn_points.get_random_spawn_point()
+
+	await get_tree().create_timer(0.3).timeout
 	
 	#set player to alive and emit signal
 	is_dead = false

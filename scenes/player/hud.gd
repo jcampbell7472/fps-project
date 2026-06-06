@@ -4,9 +4,14 @@ var nm = NetworkManager
 @onready var mm = get_node("/root/Main/MultiplayerManager")
 
 @onready var death_controller: Node = $"../DeathController"
+@onready var input_controller: Node = $"../InputController"
 
 @onready var player_list: TextEdit = $PlayerList
 @onready var death_ui: Control = $DeathUI
+@onready var pause_ui: Control = $PauseUI
+@onready var crosshair: TextureRect = $Crosshair
+
+@onready var sens_edit: SpinBox = $PauseUI/SensEdit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +19,8 @@ func _ready() -> void:
 		return
 	
 	death_controller.death_state_changed.connect(toggle_death_ui)
+	input_controller.pause_changed.connect(toggle_pause_ui)
+	input_controller.pause_changed.connect(toggle_crosshair)
 	mm.score_updated.connect(update_player_list)
 	
 	#make the player list visible
@@ -26,6 +33,8 @@ func _ready() -> void:
 			player_list.text += nm.players[id] + " (you)" + "\n"
 		else:
 			player_list.text += nm.players[id] + "\n"
+	
+	sens_edit.value = 5
 
 func update_player_list():
 	#update player list with score appended
@@ -41,3 +50,15 @@ func toggle_death_ui(is_dead : bool):
 		death_ui.visible = true
 	else:
 		death_ui.visible = false
+
+func toggle_pause_ui(is_paused : bool):
+	if is_paused:
+		pause_ui.visible = true
+	else:
+		pause_ui.visible = false
+
+func toggle_crosshair(is_paused : bool):
+	if is_paused:
+		crosshair.visible = false
+	else:
+		crosshair.visible = true

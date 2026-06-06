@@ -38,7 +38,7 @@ func start_load():
 		set_process(true)
 
 #this process repeatedly checks the status of the loading request
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#get the current loading status
 	var load_status = ResourceLoader.load_threaded_get_status(scene_path, progress) #weirdly pass progress array - returns one element array containing progress ratio (between 0.0 and 1.0)
 	#emit signal to pass loading progress to loading screen, optional use

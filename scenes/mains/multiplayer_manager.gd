@@ -6,10 +6,9 @@ signal score_updated
 @onready var spawner: MultiplayerSpawner = $MultiplayerSpawner
 @onready var spawn_points: Node = $"../SpawnPoints"
 
-var spawned_players = [] #array containing all players
+var spawned_players = [] #array containing all players, this should probably be a dictionary
 
-var player_usernames = {}
-var player_scores = {} #array containg all player scores, keyed by id
+var player_scores = {} #dict containg all player scores, keyed by id
 
 #preload the player scene
 var player_scene = preload("res://scenes/player/player.tscn")
@@ -17,8 +16,6 @@ var player_scene = preload("res://scenes/player/player.tscn")
 func _ready() -> void:
 	nm.players_ready_to_spawn.connect(spawn_players) #signal from network manager that notifies whenever every player is ready to spawn
 	nm.notify_player_ready() #notify network manager that this player is ready to spawn
-	
-	player_usernames = nm.players
 
 #connected to players_ready_to_spawn signal
 func spawn_players():

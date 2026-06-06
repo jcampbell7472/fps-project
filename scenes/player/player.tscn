@@ -20,9 +20,10 @@ properties/1/replication_mode = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 radius = 0.75
+height = 2.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_p47bc"]
-size = Vector3(1, 1.7, 1)
+size = Vector3(1, 2.3, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=1548439962]
 collision_layer = 2
@@ -35,14 +36,14 @@ replication_config = SubResource("SceneReplicationConfig_p47bc")
 [node name="MovementController" type="Node" parent="." unique_id=1274783716]
 script = ExtResource("3_p47bc")
 
-[node name="InputController" type="Node" parent="." unique_id=1617642051]
-script = ExtResource("3_i3pqv")
-
 [node name="ShootingController" type="Node" parent="." unique_id=542990687]
 script = ExtResource("3_0owmy")
 
 [node name="DeathController" type="Node" parent="." unique_id=689227228]
 script = ExtResource("5_qek5x")
+
+[node name="InputController" type="Node" parent="." unique_id=1617642051]
+script = ExtResource("3_i3pqv")
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1845853080]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69459677, 0)
@@ -54,10 +55,11 @@ target_position = Vector3(0, 0, -100)
 collision_mask = 4
 
 [node name="PlayerCollider" type="CollisionShape3D" parent="." unique_id=1880180869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2201699, 0)
 shape = SubResource("CapsuleShape3D_onrkg")
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="." unique_id=1399993386]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.059674174, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21370444, 0)
 mesh = SubResource("BoxMesh_p47bc")
 script = ExtResource("6_75vfm")
 
@@ -145,6 +147,76 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PauseUI" type="Control" parent="HUD" unique_id=742976935]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = -208.0
+offset_right = 328.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PauseLabel" type="Label" parent="HUD/PauseUI" unique_id=1722489378]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -165.0
+offset_right = 86.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "SETTINGS"
+
+[node name="Panel" type="Panel" parent="HUD/PauseUI" unique_id=1250282149]
+modulate = Color(1, 1, 1, 0.7607843)
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SensLabel" type="Label" parent="HUD/PauseUI" unique_id=440333866]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -20.0
+offset_right = -22.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Mouse Sensitivity:"
+
+[node name="SensEdit" type="SpinBox" parent="HUD/PauseUI" unique_id=767277768]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 192.0
+offset_right = 445.5
+offset_bottom = 223.0
+min_value = 1.0
+value = 1.0
 
 [node name="Crosshair" type="TextureRect" parent="HUD" unique_id=1143440153]
 layout_mode = 1
